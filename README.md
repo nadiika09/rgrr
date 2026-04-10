@@ -1,1 +1,2 @@
-
+Цей проєкт автоматизує керування базою даних FitLab за допомогою Liquibase та Docker. База PostgreSQL 17 розгортається у контейнері через docker-compose up -d, а всі зміни структури, як-от створення таблиць trainers, фіксуються через Liquibase для можливості відкату змін.
+Для роботи я використовую команду "./liquibase-5.0.2/liquibase" status для перевірки стану та "./liquibase-5.0.2/liquibase" --changelog-file=db/changelog/db.changelog-master.xml update для створення таблиць. У разі помилки остання дія скасовується через rollbackCount 1. Усі налаштування зберігаються в liquibase.properties, а драйвер postgresql.jar для зручності додано в корінь проєкту.
